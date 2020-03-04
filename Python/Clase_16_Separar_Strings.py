@@ -7,6 +7,7 @@ rangos que se requieren y los saltos necesarios
 
 
 my_string = 'camilo'
+
 print(my_string[1:])
 
 print(my_string[1:3])

@@ -28,7 +28,6 @@ for i in range(30):
         break
 
 x = 'Camilo'
-
 for i in range(6):
     if i > 6:
         print('')

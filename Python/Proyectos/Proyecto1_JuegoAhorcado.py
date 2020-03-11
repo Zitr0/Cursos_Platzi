@@ -121,8 +121,34 @@ def run():
         #Muestra tablero con 2 parametros
         displayBoard(hiddenWord, tries)
         currentLetter = str(input('Escribir una letra: '))
-    pass
 
+
+        letterIndexes = []
+        for idx in range(len(word)):
+            if word[idx] == currentLetter:
+                letterIndexes.append(idx)
+
+        if len(letterIndexes) == 0:
+            tries += 1
+
+            if tries == 7:
+                displayBoard(hiddenWord,tries)
+                print('')
+                print('!Perdiste!')
+                print('la palabra correcta era {}'.format(word))
+                break
+        else:
+            for idx in letterIndexes:
+                hiddenWord[idx] = currentLetter
+
+            letterIndexes = []
+
+        try:
+            hiddenWord.index('_')
+        except ValueError:
+            print('')
+            print('Felicidades! Ganaste. La palabra es: {}'.format(word))
+            break
 
 if __name__ == '__main__':
     print(':: Bienvenidos al juego ::')

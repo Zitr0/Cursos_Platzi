@@ -116,17 +116,28 @@ def run():
     # Se muestra la palabra escondida con guion bajo
     hiddenWord = ['_'] * len(word)
     tries = 0
-
+    
     while True:
         #Muestra tablero con 2 parametros
         displayBoard(hiddenWord, tries)
         currentLetter = str(input('Escribir una letra: '))
 
-
         letterIndexes = []
+        letterIn = []
+        letterList = []
+
+        #    print('La letra -{}-  ya fue introducida, intenta con otra'.format(currentLetter))
+       #for letter in letterList:
+                #print('')
+                #print('Las otras letras introducidas anteriormente son: {}'.format(letter))
+            #print(letter, end=" ")
+            #print('Las otras letras introducidas anteriormente son: {}'.format(letterList))
+
         for idx in range(len(word)):
             if word[idx] == currentLetter:
                 letterIndexes.append(idx)
+                letterIn.append(idx)
+                letterList.append(currentLetter)
 
         if len(letterIndexes) == 0:
             tries += 1

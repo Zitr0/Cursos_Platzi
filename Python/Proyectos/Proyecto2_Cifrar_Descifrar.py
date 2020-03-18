@@ -72,10 +72,34 @@ KEYS = {
 }
 
 def cypher(message):
-    pass
+    words = message.split(' ')
+    cypherMessage = []
+
+    for word in words:
+        cypherWord = ''
+        for letter in word:
+            cypherWord += KEYS[letter]
+
+        cypherMessage.append(cypherWord)
+
+    return ' '.join(cypherMessage)
+
 
 def decypher(message):
-    pass
+    words = message.split(' ')
+    decypherMessage = []
+
+    for word in words:
+        decypherWord = ''
+
+        for letter in word:
+
+            for key, value in KEYS.items():
+                if value == letter:
+                    decypherWord += key
+
+        decypherMessage.append(decypherWord)
+    return ' '.join(decypherMessage)
 
 def run():
 
@@ -92,13 +116,18 @@ def run():
         '''))
 
         if command == 'c':
-            print('cifrar')
-            print('==========================')
+            message = str(input('Escribe el mensaje a cifrar: '))
+            cypherMessage = cypher(message)
+            print(cypherMessage)
+
         elif command == 'd':
-            print('decifrar')
-            print('==========================')
+            message = str(input('Escribe el mensaje cifrado: '))
+            decypherMessage = decypher(message)
+            print(decypherMessage)
+
         elif command == 's':
             print('salir')
+            break
             print('==========================')
         else:
             print('Comando no encontrado')
